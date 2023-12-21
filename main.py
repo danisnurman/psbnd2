@@ -17,7 +17,7 @@ st.title('Diabetes Health Indicators')
 st.write("Hi! Please fill the form below.")
 
 ###
-df = pd.read_csv('/workspaces/psbnd2/diabetes_binary_5050split_health_indicators_BRFSS2015.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/danisnurman/psbnd2/main/diabetes_binary_5050split_health_indicators_BRFSS2015.csv')
 # st.dataframe(df, use_container_width=True)
 df.dropna(inplace=True)
 df.isnull().sum()
@@ -43,7 +43,7 @@ clf = clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 st.write("Accuracy: ", metrics.accuracy_score(y_test, y_pred))
 
-predict_result = clf.predict([[1,0,1,29,1,0,0]])
+predict_result = clf.predict([[0,0,1,53,0,0,0]])
 st.write(predict_result)
 
 ### Visualize
@@ -85,5 +85,11 @@ heartVal = st.number_input(label="Heart Disease or Attack?", min_value=0, max_va
 ###
 
 st.write(bpVal, cholVal, cholCheckVal, bmiVal, smokerVal, strokeVal, heartVal)
-###
 
+predict_result = clf.predict([[bpVal, cholVal, cholCheckVal, bmiVal, smokerVal, strokeVal, heartVal]])
+if(predict_result==0):
+    st.write(predict_result, "Not Risk")
+else:
+    st.write(predict_result, "Risk!")
+# st.write(predict_result)
+###
