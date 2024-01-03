@@ -1,6 +1,5 @@
 import streamlit
 import pandas
-import sklearn
 # import mitosheet as mt
 # from mitosheet.streamlit.v1 import spreadsheet
 # import matplotlib.pyplot as plt
