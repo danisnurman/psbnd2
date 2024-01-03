@@ -17,7 +17,7 @@ st.title('Diabetes Health Indicators')
 st.write("Hi! Please fill the form below.")
 
 ###
-df = pd.read_csv('/workspaces/psbnd2/diabetes_binary_5050split_health_indicators_BRFSS2015.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/danisnurman/psbnd2/main/diabetes_binary_5050split_health_indicators_BRFSS2015.csv')
 # st.dataframe(df, use_container_width=True)
 df.dropna(inplace=True)
 df.isnull().sum()
